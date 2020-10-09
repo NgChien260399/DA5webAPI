@@ -41,6 +41,13 @@ namespace API.Controllers
             return _productBusiness.GetDataAll();
         }
 
+        [Route("get-new")]
+        [HttpGet]
+        public IEnumerable<ProductModel> GetDataNew()
+        {
+            return _productBusiness.GetDataNew();
+        }
+
         [Route("search")]
         [HttpPost]
         public ResponseModel Search([FromBody] Dictionary<string, object> formData)
