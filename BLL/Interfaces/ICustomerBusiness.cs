@@ -7,6 +7,6 @@ namespace BLL
 {
     public partial interface ICustomerBusiness
     {
-        bool Create(CustomerModel model);
+        bool CreateCustomer(CustomerModel model);
     }
 }

@@ -7,6 +7,6 @@ namespace DAL
 {
     public partial interface ICustomerRepository
     {
-        bool Create(CustomerModel model);
+        bool CreateCustomer(CustomerModel model);
     }
 }

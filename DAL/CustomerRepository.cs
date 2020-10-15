@@ -16,7 +16,7 @@ namespace DAL
             _dbHelper = dbHelper;
         }
 
-        public bool Create(CustomerModel model)
+        public bool CreateCustomer(CustomerModel model)
         {
             string msgError = "";
             try

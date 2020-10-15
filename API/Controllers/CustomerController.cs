@@ -20,11 +20,11 @@ namespace API.Controllers
             _customerBusiness = customerBusiness;
         }
 
-        [Route("create-item")]
+        [Route("create-customer")]
         [HttpPost]
-        public CustomerModel CreateItem([FromBody] CustomerModel model)
+        public CustomerModel CreateCustomer([FromBody] CustomerModel model)
         {
-            _customerBusiness.Create(model);
+            _customerBusiness.CreateCustomer(model);
             return model;
         }
     }

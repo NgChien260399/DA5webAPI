@@ -14,9 +14,9 @@ namespace BLL
         {
             _res = res;
         }
-        public bool Create(CustomerModel model)
+        public bool CreateCustomer(CustomerModel model)
         {
-            return _res.Create(model);
+            return _res.CreateCustomer(model);
         }
     }
 

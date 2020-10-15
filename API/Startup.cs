@@ -40,6 +40,7 @@ namespace API
             services.AddCors(options => {
                 options.AddPolicy("AllowAll", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
             });
+            services.AddSwaggerGen();
             services.AddControllers();
             services.AddTransient<IDatabaseHelper, DatabaseHelper>();
             services.AddTransient<ICategoryRepository, CategoryRepository>();
@@ -59,6 +60,14 @@ namespace API
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
+
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS, etc.),
+            // specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+            });
             app.UseApiMiddleware();
             app.UseRouting();
             app.UseAuthorization();
