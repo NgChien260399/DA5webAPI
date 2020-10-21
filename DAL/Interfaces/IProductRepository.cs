@@ -8,10 +8,13 @@ namespace DAL
     public partial interface IProductRepository
     {
         bool Create(ProductModel model);
+        bool Update(ProductModel model);
+        bool Delete(string id);
+        List<ProductModel> Search(int pageIndex, int pageSize, out long total, string product_name, decimal product_price);
         ProductModel GetDatabyID(string id);
         List<ProductModel> GetDataAll();
         List<ProductModel> GetDataNew();
-        List<ProductModel> Search(int pageIndex, int pageSize, out long total, string category_id);
-        List<ProductModel> Search1(int pageIndex, int pageSize, out long total, string brand_id);
+        List<ProductModel> SearchCategory(int pageIndex, int pageSize, out long total, string category_id);
+        List<ProductModel> SearchBrand(int pageIndex, int pageSize, out long total, string brand_id);
     }
 }
