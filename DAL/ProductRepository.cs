@@ -22,7 +22,6 @@ namespace DAL
             try
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_product_create",
-                "@product_id", model.product_id,
                 "@category_id", model.category_id,
                 "@brand_id", model.brand_id,
                 "@product_name ", model.product_name,
@@ -75,7 +74,6 @@ namespace DAL
                 "@product_desc ", model.product_desc,
                 "@product_content", model.product_content,
                 "@product_status", model.product_status,
-                "@product_price", model.product_price,
                 "@product_image", model.product_image,
                 "@product_price", model.product_price);
                 if ((result != null && !string.IsNullOrEmpty(result.ToString())) || !string.IsNullOrEmpty(msgError))
