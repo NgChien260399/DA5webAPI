@@ -3,17 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BLL.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Model;
 
 namespace API.Controllers
 {
-	[Route("api/[controller]")]
+    [Route("api/[controller]")]
 	[ApiController]
     public class BrandController : ControllerBase
     {
-        private readonly IBrandBusiness _BrandBusiness;
+        
+        private IBrandBusiness _BrandBusiness;
+        private string _path;
         public BrandController(IBrandBusiness BrandBusiness)
         {
             _BrandBusiness = BrandBusiness;
@@ -41,8 +44,8 @@ namespace API.Controllers
         public BrandModel CreateBrand([FromBody] BrandModel model)
         {
             model.brand_id = Guid.NewGuid().ToString();
-            model.parent_brand_id = "1";
-            _BrandBusiness.Create(model);
+			model.parent_brand_id = "1";
+			_BrandBusiness.Create(model);
             return model;
         }
 
