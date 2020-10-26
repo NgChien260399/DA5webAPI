@@ -87,7 +87,7 @@ namespace API.Controllers
 
         [Route("delete-product")]
         [HttpPost]
-        public IActionResult DeleteUser([FromBody] Dictionary<string, object> formData)
+        public IActionResult DeleteProduct([FromBody] Dictionary<string, object> formData)
         {
             string product_id = "";
             if (formData.Keys.Contains("product_id") && !string.IsNullOrEmpty(Convert.ToString(formData["product_id"]))) { product_id = Convert.ToString(formData["product_id"]); }
@@ -101,11 +101,17 @@ namespace API.Controllers
         {
             return _productBusiness.GetDatabyID(id);
         }
-        [Route("get-all")]
+        [Route("get-all/{page_index}/{page_size}")]
         [HttpGet]
-        public IEnumerable<ProductModel> GetDatabAll()
+        public IEnumerable<ProductModel> GetDatabAll(int page_index, int page_size)
         {
-            return _productBusiness.GetDataAll();
+			long total = 0;
+			var kq = _productBusiness.GetDataAll(page_index, page_size, out total);
+            foreach (var item in kq)
+            {
+                item.total = total;
+            }
+            return kq;
         }
 
         [Route("get-new")]

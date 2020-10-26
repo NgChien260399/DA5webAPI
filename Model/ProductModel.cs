@@ -14,5 +14,6 @@ namespace Model
 		public string category_id { get; set; }
 		public string brand_id { get; set; }
 		public decimal? product_price { get; set; }
+		public long? total { get; set; }
 	}
 }
