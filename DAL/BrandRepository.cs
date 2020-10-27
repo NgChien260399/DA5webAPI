@@ -78,7 +78,7 @@ namespace DAL
             try
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_brand_update",
-                "@parent_brand_id", model.parent_brand_id,
+                
                 "@brand_id", model.brand_id,
                 "@brand_name", model.brand_name,
                 "@desc", model.desc,

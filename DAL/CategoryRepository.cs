@@ -79,7 +79,7 @@ namespace DAL
             try
             {
                 var result = _dbHelper.ExecuteScalarSProcedureWithTransaction(out msgError, "sp_category_update",
-                "@parent_category_id", model.parent_category_id,
+                
                 "@category_id", model.category_id,
                 "@category_name", model.category_name,
                 "@desc", model.desc,
