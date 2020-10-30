@@ -15,6 +15,7 @@ namespace API.Controllers
     public class CustomerController : ControllerBase
     {
         private ICustomerBusiness _customerBusiness;
+
         public CustomerController(ICustomerBusiness customerBusiness)
         {
             _customerBusiness = customerBusiness;
@@ -67,7 +68,7 @@ namespace API.Controllers
                 string customer_email = "";
                 if (formData.Keys.Contains("customer_email") && !string.IsNullOrEmpty(Convert.ToString(formData["customer_email"]))) { customer_email = Convert.ToString(formData["customer_email"]); }
                 long total = 0;
-                var data = _customerBusiness.Search(page, pageSize, out total, customer_email,customer_name);
+                var data = _customerBusiness.Search(page, pageSize, out total, customer_name, customer_email);
                 response.TotalItems = total;
                 response.Data = data;
                 response.Page = page;

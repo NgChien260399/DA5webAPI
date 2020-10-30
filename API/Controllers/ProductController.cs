@@ -70,7 +70,7 @@ namespace API.Controllers
                 string product_name = "";
                 if (formData.Keys.Contains("product_name") && !string.IsNullOrEmpty(Convert.ToString(formData["product_name"]))) { product_name = Convert.ToString(formData["product_name"]); }
                 decimal product_price = 0;
-                if (formData.Keys.Contains("product_price") && (formData["product_price"]) != null) { product_price = Convert.ToDecimal(formData["product_price"]); }
+                if (formData.Keys.Contains("product_price") && (formData["product_price"]) != null) { product_price = (decimal)formData["product_price"]; }
                 long total = 0;
                 var data = _productBusiness.Search(page, pageSize, out total, product_name, product_price);
                 response.TotalItems = total;
