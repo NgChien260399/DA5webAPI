@@ -30,7 +30,7 @@ namespace BLL
         {
             return _res.Search(pageIndex, pageSize, out total, product_name, product_price);
         }
-        public ProductModel GetDatabyID(string id)
+        public ProductModel GetDatabyID(int id)
         {
             return _res.GetDatabyID(id);
         }
@@ -49,6 +49,11 @@ namespace BLL
         public List<ProductModel> SearchBrand(int pageIndex, int pageSize, out long total, string brand_id)
         {
             return _res.SearchBrand(pageIndex, pageSize, out total, brand_id);
+        }
+
+        public List<ProductModel> Gettuongtu(int product_id)
+        {
+            return _res.Gettuongtu(product_id);
         }
     }
 
